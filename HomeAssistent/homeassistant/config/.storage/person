@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "minor_version": 1,
+  "key": "person",
+  "data": {
+    "items": [
+      {
+        "id": "lovro_krcelic",
+        "name": "Lovro Krcelic",
+        "user_id": "f8030f0963bb45e280ba017b7fb5ed71",
+        "device_trackers": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,636 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "trace.saved_traces",
+  "data": {
+    "automation.None": [
+      {
+        "extended_dict": {
+          "last_step": "condition/0/conditions/1/entity_id/0",
+          "run_id": "0f14325b3499417231a2812c92972ab9",
+          "state": "running",
+          "script_execution": null,
+          "timestamp": {
+            "start": "2024-05-27T16:06:04.471094+00:00",
+            "finish": null
+          },
+          "domain": "automation",
+          "item_id": "None",
+          "trigger": "state of binary_sensor.motion_sensor",
+          "trace": {
+            "trigger/0": [
+              {
+                "path": "trigger/0",
+                "timestamp": "2024-05-27T16:06:04.471147+00:00",
+                "changed_variables": {
+                  "this": {
+                    "entity_id": "automation.motion_and_proximity_detected",
+                    "state": "on",
+                    "attributes": {
+                      "last_triggered": "2024-05-27T15:45:01.040222+00:00",
+                      "mode": "single",
+                      "current": 0,
+                      "friendly_name": "Motion and Proximity Detected"
+                    },
+                    "last_changed": "2024-05-27T16:05:06.928784+00:00",
+                    "last_reported": "2024-05-27T16:05:06.928784+00:00",
+                    "last_updated": "2024-05-27T16:05:06.928784+00:00",
+                    "context": {
+                      "id": "01HYXCRQQGA8N10CZFQA8QWT5M",
+                      "parent_id": null,
+                      "user_id": null
+                    }
+                  },
+                  "trigger": {
+                    "id": "0",
+                    "idx": "0",
+                    "alias": null,
+                    "platform": "state",
+                    "entity_id": "binary_sensor.motion_sensor",
+                    "from_state": {
+                      "entity_id": "binary_sensor.motion_sensor",
+                      "state": "unknown",
+                      "attributes": {
+                        "device_class": "motion",
+                        "friendly_name": "Motion Sensor"
+                      },
+                      "last_changed": "2024-05-27T16:05:06.957388+00:00",
+                      "last_reported": "2024-05-27T16:05:06.957388+00:00",
+                      "last_updated": "2024-05-27T16:05:06.957388+00:00",
+                      "context": {
+                        "id": "01HYXCRQRD5TGJ7ZC3AFKK7AFX",
+                        "parent_id": null,
+                        "user_id": null
+                      }
+                    },
+                    "to_state": {
+                      "entity_id": "binary_sensor.motion_sensor",
+                      "state": "on",
+                      "attributes": {
+                        "device_class": "motion",
+                        "friendly_name": "Motion Sensor"
+                      },
+                      "last_changed": "2024-05-27T16:06:04.470940+00:00",
+                      "last_reported": "2024-05-27T16:06:04.470940+00:00",
+                      "last_updated": "2024-05-27T16:06:04.470940+00:00",
+                      "context": {
+                        "id": "01HYXCTFXP3R4MB2QXZ4G6EJJ0",
+                        "parent_id": null,
+                        "user_id": null
+                      }
+                    },
+                    "for": null,
+                    "attribute": null,
+                    "description": "state of binary_sensor.motion_sensor"
+                  }
+                }
+              }
+            ],
+            "condition/0": [
+              {
+                "path": "condition/0",
+                "timestamp": "2024-05-27T16:06:04.471184+00:00",
+                "result": {
+                  "result": false
+                }
+              }
+            ],
+            "condition/0/conditions/0": [
+              {
+                "path": "condition/0/conditions/0",
+                "timestamp": "2024-05-27T16:06:04.471209+00:00",
+                "result": {
+                  "result": true
+                }
+              }
+            ],
+            "condition/0/conditions/0/entity_id/0": [
+              {
+                "path": "condition/0/conditions/0/entity_id/0",
+                "timestamp": "2024-05-27T16:06:04.471233+00:00",
+                "result": {
+                  "result": true,
+                  "state": "on",
+                  "wanted_state": "on"
+                }
+              }
+            ],
+            "condition/0/conditions/1": [
+              {
+                "path": "condition/0/conditions/1",
+                "timestamp": "2024-05-27T16:06:04.471279+00:00",
+                "result": {
+                  "result": false
+                }
+              }
+            ],
+            "condition/0/conditions/1/entity_id/0": [
+              {
+                "path": "condition/0/conditions/1/entity_id/0",
+                "timestamp": "2024-05-27T16:06:04.471307+00:00",
+                "result": {
+                  "result": false,
+                  "state": "unknown",
+                  "wanted_state": "on"
+                }
+              }
+            ]
+          },
+          "config": {
+            "alias": "Motion and Proximity Detected",
+            "trigger": [
+              {
+                "platform": "state",
+                "entity_id": "binary_sensor.motion_sensor",
+                "to": "on"
+              },
+              {
+                "platform": "state",
+                "entity_id": "binary_sensor.ultrasonic_sensor",
+                "to": "on"
+              }
+            ],
+            "condition": {
+              "condition": "and",
+              "conditions": [
+                {
+                  "condition": "state",
+                  "entity_id": "binary_sensor.motion_sensor",
+                  "state": "on"
+                },
+                {
+                  "condition": "state",
+                  "entity_id": "binary_sensor.ultrasonic_sensor",
+                  "state": "on"
+                }
+              ]
+            },
+            "action": [
+              {
+                "service": "light.turn_on",
+                "target": {
+                  "entity_id": "light.doorbell_light"
+                }
+              },
+              {
+                "service": "notify.notify",
+                "data": {
+                  "message": "Motion and proximity detected!",
+                  "data": {
+                    "image": "http://localhost:8123/local/person.jpg"
+                  }
+                }
+              },
+              {
+                "service": "rest_command.send_image",
+                "data": {
+                  "image_url": "http://localhost:8123/local/person.jpg"
+                }
+              }
+            ]
+          },
+          "blueprint_inputs": null,
+          "context": {
+            "id": "01HYXCTFXQ5A7BTJ4FFQA42V2Q",
+            "parent_id": "01HYXCTFXP3R4MB2QXZ4G6EJJ0",
+            "user_id": null
+          }
+        },
+        "short_dict": {
+          "last_step": "condition/0/conditions/1/entity_id/0",
+          "run_id": "0f14325b3499417231a2812c92972ab9",
+          "state": "running",
+          "script_execution": null,
+          "timestamp": {
+            "start": "2024-05-27T16:06:04.471094+00:00",
+            "finish": null
+          },
+          "domain": "automation",
+          "item_id": "None",
+          "trigger": "state of binary_sensor.motion_sensor"
+        }
+      },
+      {
+        "extended_dict": {
+          "last_step": "action/1",
+          "run_id": "04bf348cc5a0f442a20d8b036d8e7417",
+          "state": "running",
+          "script_execution": null,
+          "timestamp": {
+            "start": "2024-05-27T16:06:16.011405+00:00",
+            "finish": null
+          },
+          "domain": "automation",
+          "item_id": "None",
+          "error": "Service notify.notify not found",
+          "trigger": "state of binary_sensor.ultrasonic_sensor",
+          "trace": {
+            "trigger/1": [
+              {
+                "path": "trigger/1",
+                "timestamp": "2024-05-27T16:06:16.011440+00:00",
+                "changed_variables": {
+                  "this": {
+                    "entity_id": "automation.motion_and_proximity_detected",
+                    "state": "on",
+                    "attributes": {
+                      "last_triggered": "2024-05-27T15:45:01.040222+00:00",
+                      "mode": "single",
+                      "current": 0,
+                      "friendly_name": "Motion and Proximity Detected"
+                    },
+                    "last_changed": "2024-05-27T16:05:06.928784+00:00",
+                    "last_reported": "2024-05-27T16:05:06.928784+00:00",
+                    "last_updated": "2024-05-27T16:05:06.928784+00:00",
+                    "context": {
+                      "id": "01HYXCRQQGA8N10CZFQA8QWT5M",
+                      "parent_id": null,
+                      "user_id": null
+                    }
+                  },
+                  "trigger": {
+                    "id": "1",
+                    "idx": "1",
+                    "alias": null,
+                    "platform": "state",
+                    "entity_id": "binary_sensor.ultrasonic_sensor",
+                    "from_state": {
+                      "entity_id": "binary_sensor.ultrasonic_sensor",
+                      "state": "unknown",
+                      "attributes": {
+                        "device_class": "occupancy",
+                        "friendly_name": "Ultrasonic Sensor"
+                      },
+                      "last_changed": "2024-05-27T16:05:06.957516+00:00",
+                      "last_reported": "2024-05-27T16:05:06.957516+00:00",
+                      "last_updated": "2024-05-27T16:05:06.957516+00:00",
+                      "context": {
+                        "id": "01HYXCRQRDRW8ETA7VJ2F8Z86B",
+                        "parent_id": null,
+                        "user_id": null
+                      }
+                    },
+                    "to_state": {
+                      "entity_id": "binary_sensor.ultrasonic_sensor",
+                      "state": "on",
+                      "attributes": {
+                        "device_class": "occupancy",
+                        "friendly_name": "Ultrasonic Sensor"
+                      },
+                      "last_changed": "2024-05-27T16:06:16.011286+00:00",
+                      "last_reported": "2024-05-27T16:06:16.011286+00:00",
+                      "last_updated": "2024-05-27T16:06:16.011286+00:00",
+                      "context": {
+                        "id": "01HYXCTV6BT752T89HYYBHEFYD",
+                        "parent_id": null,
+                        "user_id": null
+                      }
+                    },
+                    "for": null,
+                    "attribute": null,
+                    "description": "state of binary_sensor.ultrasonic_sensor"
+                  }
+                }
+              }
+            ],
+            "condition/0": [
+              {
+                "path": "condition/0",
+                "timestamp": "2024-05-27T16:06:16.011464+00:00",
+                "result": {
+                  "result": true
+                }
+              }
+            ],
+            "condition/0/conditions/0": [
+              {
+                "path": "condition/0/conditions/0",
+                "timestamp": "2024-05-27T16:06:16.011479+00:00",
+                "result": {
+                  "result": true
+                }
+              }
+            ],
+            "condition/0/conditions/0/entity_id/0": [
+              {
+                "path": "condition/0/conditions/0/entity_id/0",
+                "timestamp": "2024-05-27T16:06:16.011503+00:00",
+                "result": {
+                  "result": true,
+                  "state": "on",
+                  "wanted_state": "on"
+                }
+              }
+            ],
+            "condition/0/conditions/1": [
+              {
+                "path": "condition/0/conditions/1",
+                "timestamp": "2024-05-27T16:06:16.011541+00:00",
+                "result": {
+                  "result": true
+                }
+              }
+            ],
+            "condition/0/conditions/1/entity_id/0": [
+              {
+                "path": "condition/0/conditions/1/entity_id/0",
+                "timestamp": "2024-05-27T16:06:16.011551+00:00",
+                "result": {
+                  "result": true,
+                  "state": "on",
+                  "wanted_state": "on"
+                }
+              }
+            ],
+            "action/0": [
+              {
+                "path": "action/0",
+                "timestamp": "2024-05-27T16:06:16.011775+00:00",
+                "changed_variables": {
+                  "context": {
+                    "id": "01HYXCTV6BVYZYPQ3XA2RH50RD",
+                    "parent_id": "01HYXCTV6BT752T89HYYBHEFYD",
+                    "user_id": null
+                  }
+                },
+                "result": {
+                  "params": {
+                    "domain": "light",
+                    "service": "turn_on",
+                    "service_data": {},
+                    "target": {
+                      "entity_id": [
+                        "light.doorbell_light"
+                      ]
+                    }
+                  },
+                  "running_script": false
+                }
+              }
+            ],
+            "action/1": [
+              {
+                "path": "action/1",
+                "timestamp": "2024-05-27T16:06:16.013048+00:00",
+                "error": "Service notify.notify not found",
+                "result": {
+                  "params": {
+                    "domain": "notify",
+                    "service": "notify",
+                    "service_data": {
+                      "message": "Motion and proximity detected!",
+                      "data": {
+                        "image": "http://localhost:8123/local/person.jpg"
+                      }
+                    },
+                    "target": {}
+                  },
+                  "running_script": false
+                }
+              }
+            ]
+          },
+          "config": {
+            "alias": "Motion and Proximity Detected",
+            "trigger": [
+              {
+                "platform": "state",
+                "entity_id": "binary_sensor.motion_sensor",
+                "to": "on"
+              },
+              {
+                "platform": "state",
+                "entity_id": "binary_sensor.ultrasonic_sensor",
+                "to": "on"
+              }
+            ],
+            "condition": {
+              "condition": "and",
+              "conditions": [
+                {
+                  "condition": "state",
+                  "entity_id": "binary_sensor.motion_sensor",
+                  "state": "on"
+                },
+                {
+                  "condition": "state",
+                  "entity_id": "binary_sensor.ultrasonic_sensor",
+                  "state": "on"
+                }
+              ]
+            },
+            "action": [
+              {
+                "service": "light.turn_on",
+                "target": {
+                  "entity_id": "light.doorbell_light"
+                }
+              },
+              {
+                "service": "notify.notify",
+                "data": {
+                  "message": "Motion and proximity detected!",
+                  "data": {
+                    "image": "http://localhost:8123/local/person.jpg"
+                  }
+                }
+              },
+              {
+                "service": "rest_command.send_image",
+                "data": {
+                  "image_url": "http://localhost:8123/local/person.jpg"
+                }
+              }
+            ]
+          },
+          "blueprint_inputs": null,
+          "context": {
+            "id": "01HYXCTV6BVYZYPQ3XA2RH50RD",
+            "parent_id": "01HYXCTV6BT752T89HYYBHEFYD",
+            "user_id": null
+          }
+        },
+        "short_dict": {
+          "last_step": "action/1",
+          "run_id": "04bf348cc5a0f442a20d8b036d8e7417",
+          "state": "running",
+          "script_execution": null,
+          "timestamp": {
+            "start": "2024-05-27T16:06:16.011405+00:00",
+            "finish": null
+          },
+          "domain": "automation",
+          "item_id": "None",
+          "error": "Service notify.notify not found",
+          "trigger": "state of binary_sensor.ultrasonic_sensor"
+        }
+      },
+      {
+        "extended_dict": {
+          "last_step": "action/0",
+          "run_id": "4908e242cfc54d47a3957b8431a835a1",
+          "state": "running",
+          "script_execution": null,
+          "timestamp": {
+            "start": "2024-05-27T16:24:52.112216+00:00",
+            "finish": null
+          },
+          "domain": "automation",
+          "item_id": "None",
+          "error": "Service notify.notify not found",
+          "trigger": "state of binary_sensor.ultrasonic_sensor",
+          "trace": {
+            "trigger/1": [
+              {
+                "path": "trigger/1",
+                "timestamp": "2024-05-27T16:24:52.112289+00:00",
+                "changed_variables": {
+                  "this": {
+                    "entity_id": "automation.fly_detected_notification",
+                    "state": "on",
+                    "attributes": {
+                      "last_triggered": null,
+                      "mode": "single",
+                      "current": 0,
+                      "friendly_name": "Fly Detected Notification"
+                    },
+                    "last_changed": "2024-05-27T16:05:42.626054+00:00",
+                    "last_reported": "2024-05-27T16:05:42.626054+00:00",
+                    "last_updated": "2024-05-27T16:05:42.626054+00:00",
+                    "context": {
+                      "id": "01HYXCSTK1DGDDCPZB3D3YEENF",
+                      "parent_id": null,
+                      "user_id": "f8030f0963bb45e280ba017b7fb5ed71"
+                    }
+                  },
+                  "trigger": {
+                    "id": "1",
+                    "idx": "1",
+                    "alias": null,
+                    "platform": "state",
+                    "entity_id": "binary_sensor.ultrasonic_sensor",
+                    "from_state": {
+                      "entity_id": "binary_sensor.ultrasonic_sensor",
+                      "state": "on",
+                      "attributes": {
+                        "device_class": "occupancy",
+                        "friendly_name": "Ultrasonic Sensor"
+                      },
+                      "last_changed": "2024-05-27T16:06:16.011286+00:00",
+                      "last_reported": "2024-05-27T16:06:16.011286+00:00",
+                      "last_updated": "2024-05-27T16:06:16.011286+00:00",
+                      "context": {
+                        "id": "01HYXCTV6BT752T89HYYBHEFYD",
+                        "parent_id": null,
+                        "user_id": null
+                      }
+                    },
+                    "to_state": {
+                      "entity_id": "binary_sensor.ultrasonic_sensor",
+                      "state": "off",
+                      "attributes": {
+                        "device_class": "occupancy",
+                        "friendly_name": "Ultrasonic Sensor"
+                      },
+                      "last_changed": "2024-05-27T16:24:52.111858+00:00",
+                      "last_reported": "2024-05-27T16:24:52.111858+00:00",
+                      "last_updated": "2024-05-27T16:24:52.111858+00:00",
+                      "context": {
+                        "id": "01HYXDWX4FRJGB43VE7X2F0NNF",
+                        "parent_id": null,
+                        "user_id": null
+                      }
+                    },
+                    "for": null,
+                    "attribute": null,
+                    "description": "state of binary_sensor.ultrasonic_sensor"
+                  }
+                }
+              }
+            ],
+            "action/0": [
+              {
+                "path": "action/0",
+                "timestamp": "2024-05-27T16:24:52.112667+00:00",
+                "changed_variables": {
+                  "context": {
+                    "id": "01HYXDWX4GNC5Z7R2M7P9YWJEE",
+                    "parent_id": "01HYXDWX4FRJGB43VE7X2F0NNF",
+                    "user_id": null
+                  }
+                },
+                "error": "Service notify.notify not found",
+                "result": {
+                  "params": {
+                    "domain": "notify",
+                    "service": "notify",
+                    "service_data": {
+                      "message": "Fly detected!",
+                      "data": {
+                        "image": "http://localhost:8123/local/fly.jpg"
+                      }
+                    },
+                    "target": {}
+                  },
+                  "running_script": false
+                }
+              }
+            ]
+          },
+          "config": {
+            "alias": "Fly Detected Notification",
+            "trigger": [
+              {
+                "platform": "state",
+                "entity_id": "binary_sensor.motion_sensor",
+                "to": "off"
+              },
+              {
+                "platform": "state",
+                "entity_id": "binary_sensor.ultrasonic_sensor",
+                "to": "off"
+              }
+            ],
+            "action": [
+              {
+                "service": "notify.notify",
+                "data": {
+                  "message": "Fly detected!",
+                  "data": {
+                    "image": "http://localhost:8123/local/fly.jpg"
+                  }
+                }
+              },
+              {
+                "service": "rest_command.send_image",
+                "data": {
+                  "image_url": "http://localhost:8123/local/fly.jpg"
+                }
+              }
+            ]
+          },
+          "blueprint_inputs": null,
+          "context": {
+            "id": "01HYXDWX4GNC5Z7R2M7P9YWJEE",
+            "parent_id": "01HYXDWX4FRJGB43VE7X2F0NNF",
+            "user_id": null
+          }
+        },
+        "short_dict": {
+          "last_step": "action/0",
+          "run_id": "4908e242cfc54d47a3957b8431a835a1",
+          "state": "running",
+          "script_execution": null,
+          "timestamp": {
+            "start": "2024-05-27T16:24:52.112216+00:00",
+            "finish": null
+          },
+          "domain": "automation",
+          "item_id": "None",
+          "error": "Service notify.notify not found",
+          "trigger": "state of binary_sensor.ultrasonic_sensor"
+        }
+      }
+    ]
+  }
+}

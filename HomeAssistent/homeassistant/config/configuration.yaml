@@ -1,0 +1,53 @@
+camera:
+  - platform: local_file
+    name: Person Detection
+    file_path: /config/www/person.jpg
+  - platform: local_file
+    name: Fly Detection
+    file_path: /config/www/fly.jpg
+
+rest_command:
+  send_image:
+    url: "http://localhost:5000/api/upload"
+    method: post
+    headers:
+      Content-Type: "application/json"
+    payload: >
+      {
+        "image_url": "{{ image_url }}"
+      }
+
+mqtt:
+  - binary_sensor:
+      name: "Motion Sensor"
+      state_topic: "home/sensor/motion"
+      payload_on: "ON"
+      payload_off: "OFF"
+      qos: 0
+      device_class: motion
+
+  - binary_sensor:
+      name: "Ultrasonic Sensor"
+      state_topic: "home/sensor/ultrasonic"
+      payload_on: "ON"
+      payload_off: "OFF"
+      qos: 0
+      device_class: occupancy
+
+  - light:
+      name: "Doorbell Light"
+      state_topic: "home/light/doorbell"
+      command_topic: "home/light/doorbell"
+      payload_on: "ON"
+      payload_off: "OFF"
+      qos: 0
+
+
+scene:
+  - name: Doorbell Light On
+    entities:
+      light.doorbell_light:
+        state: "on"
+        brightness: 255
+
+automation: !include automations.yaml

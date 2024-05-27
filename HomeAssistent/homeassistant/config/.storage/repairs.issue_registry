@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "minor_version": 2,
+  "key": "repairs.issue_registry",
+  "data": {
+    "issues": [
+      {
+        "created": "2024-05-27T12:07:12.284833+00:00",
+        "dismissed_version": null,
+        "domain": "homeassistant",
+        "is_persistent": false,
+        "issue_id": "platform_integration_no_support_binary_sensor_mqtt"
+      },
+      {
+        "created": "2024-05-27T12:07:12.284983+00:00",
+        "dismissed_version": null,
+        "domain": "homeassistant",
+        "is_persistent": false,
+        "issue_id": "platform_integration_no_support_light_mqtt"
+      },
+      {
+        "created": "2024-05-27T14:22:53.770956+00:00",
+        "dismissed_version": null,
+        "domain": "mqtt",
+        "is_persistent": false,
+        "issue_id": "-0x695dcfa9338b53b1"
+      },
+      {
+        "created": "2024-05-27T16:06:16.014575+00:00",
+        "dismissed_version": null,
+        "domain": "automation",
+        "is_persistent": true,
+        "issue_id": "automation.motion_and_proximity_detected_service_not_found_notify.notify",
+        "breaks_in_ha_version": null,
+        "data": null,
+        "is_fixable": true,
+        "issue_domain": null,
+        "learn_more_url": null,
+        "severity": "error",
+        "translation_key": "service_not_found",
+        "translation_placeholders": {
+          "service": "notify.notify",
+          "entity_id": "automation.motion_and_proximity_detected",
+          "name": "Motion and Proximity Detected",
+          "edit": "/config/automation/edit/None"
+        }
+      },
+      {
+        "created": "2024-05-27T16:24:52.113708+00:00",
+        "dismissed_version": null,
+        "domain": "automation",
+        "is_persistent": true,
+        "issue_id": "automation.fly_detected_notification_service_not_found_notify.notify",
+        "breaks_in_ha_version": null,
+        "data": null,
+        "is_fixable": true,
+        "issue_domain": null,
+        "learn_more_url": null,
+        "severity": "error",
+        "translation_key": "service_not_found",
+        "translation_placeholders": {
+          "service": "notify.notify",
+          "entity_id": "automation.fly_detected_notification",
+          "name": "Fly Detected Notification",
+          "edit": "/config/automation/edit/None"
+        }
+      }
+    ]
+  }
+}

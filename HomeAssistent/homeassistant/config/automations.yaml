@@ -1,0 +1,34 @@
+- alias: "Motion and Proximity Detected"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_sensor
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.ultrasonic_sensor
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: binary_sensor.motion_sensor
+        state: 'on'
+      - condition: state
+        entity_id: binary_sensor.ultrasonic_sensor
+        state: 'on'
+  action:
+    - service: light.turn_on
+      target:
+        entity_id: light.doorbell_light
+
+- alias: "Turn off light"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_sensor
+      to: 'off'
+    - platform: state
+      entity_id: binary_sensor.ultrasonic_sensor
+      to: 'off'
+  action:
+    - service: light.turn_off
+      target:
+        entity_id: light.doorbell_light

@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "core.restore_state",
+  "data": [
+    {
+      "state": {"entity_id":"person.lovro_krcelic","state":"unknown","attributes":{"editable":true,"id":"lovro_krcelic","device_trackers":[],"user_id":"f8030f0963bb45e280ba017b7fb5ed71","friendly_name":"Lovro Krcelic"},"last_changed":"2024-05-27T16:29:30.613303+00:00","last_reported":"2024-05-27T16:29:31.463730+00:00","last_updated":"2024-05-27T16:29:31.463730+00:00","context":{"id":"01HYXE5DY7WCW1BVX9QWDXTG87","parent_id":null,"user_id":null}},
+      "extra_data": null,
+      "last_seen": "2024-05-27T16:59:31.466841+00:00"
+    },
+    {
+      "state": {"entity_id":"scene.doorbell_light_on","state":"2024-05-27T15:45:01.040676+00:00","attributes":{"entity_id":["light.doorbell_light"],"friendly_name":"Doorbell Light On"},"last_changed":"2024-05-27T16:29:30.616146+00:00","last_reported":"2024-05-27T16:29:30.616146+00:00","last_updated":"2024-05-27T16:29:30.616146+00:00","context":{"id":"01HYXE5D3RRBWHXCVTEHD8RP3D","parent_id":null,"user_id":null}},
+      "extra_data": null,
+      "last_seen": "2024-05-27T16:59:31.466841+00:00"
+    },
+    {
+      "state": {"entity_id":"automation.motion_and_proximity_detected","state":"on","attributes":{"last_triggered":"2024-05-27T16:30:42.713939+00:00","mode":"single","current":0,"friendly_name":"Motion and Proximity Detected"},"last_changed":"2024-05-27T16:29:31.101004+00:00","last_reported":"2024-05-27T16:30:42.715293+00:00","last_updated":"2024-05-27T16:30:42.715293+00:00","context":{"id":"01HYXE7KGSEYBFEFMK3B6R6Z5D","parent_id":"01HYXE7KGSCXTTSY4MAZG2JYC7","user_id":null}},
+      "extra_data": null,
+      "last_seen": "2024-05-27T16:59:31.466841+00:00"
+    },
+    {
+      "state": {"entity_id":"automation.turn_off_light","state":"on","attributes":{"last_triggered":"2024-05-27T16:30:55.816491+00:00","mode":"single","current":0,"friendly_name":"Turn off light"},"last_changed":"2024-05-27T16:29:31.102719+00:00","last_reported":"2024-05-27T16:30:55.817602+00:00","last_updated":"2024-05-27T16:30:55.817602+00:00","context":{"id":"01HYXE80A8NC5Z7R2M7P9YWJEE","parent_id":"01HYXE80A8RJGB43VE7X2F0NNF","user_id":null}},
+      "extra_data": null,
+      "last_seen": "2024-05-27T16:59:31.466841+00:00"
+    },
+    {
+      "state": {"entity_id":"tts.google_en_com","state":"unknown","attributes":{"friendly_name":"Google en com"},"last_changed":"2024-05-27T16:29:31.172662+00:00","last_reported":"2024-05-27T16:29:31.172662+00:00","last_updated":"2024-05-27T16:29:31.172662+00:00","context":{"id":"01HYXE5DN45TGJ7ZC3AFKK7AFX","parent_id":null,"user_id":null}},
+      "extra_data": null,
+      "last_seen": "2024-05-27T16:59:31.466841+00:00"
+    },
+    {
+      "state": {"entity_id":"light.doorbell_light","state":"off","attributes":{"supported_color_modes":["onoff"],"color_mode":null,"friendly_name":"Doorbell Light","supported_features":0},"last_changed":"2024-05-27T16:30:55.817961+00:00","last_reported":"2024-05-27T16:30:55.817961+00:00","last_updated":"2024-05-27T16:30:55.817961+00:00","context":{"id":"01HYXE80A8NC5Z7R2M7P9YWJEE","parent_id":"01HYXE80A8RJGB43VE7X2F0NNF","user_id":null}},
+      "extra_data": null,
+      "last_seen": "2024-05-27T16:59:31.466841+00:00"
+    },
+    {
+      "state": {"entity_id":"binary_sensor.motion_sensor","state":"off","attributes":{"device_class":"motion","friendly_name":"Motion Sensor"},"last_changed":"2024-05-27T16:30:55.816181+00:00","last_reported":"2024-05-27T16:30:55.816181+00:00","last_updated":"2024-05-27T16:30:55.816181+00:00","context":{"id":"01HYXE80A8RJGB43VE7X2F0NNF","parent_id":null,"user_id":null}},
+      "extra_data": null,
+      "last_seen": "2024-05-27T16:59:31.466841+00:00"
+    },
+    {
+      "state": {"entity_id":"binary_sensor.ultrasonic_sensor","state":"on","attributes":{"device_class":"occupancy","friendly_name":"Ultrasonic Sensor"},"last_changed":"2024-05-27T16:30:39.039631+00:00","last_reported":"2024-05-27T16:30:39.039631+00:00","last_updated":"2024-05-27T16:30:39.039631+00:00","context":{"id":"01HYXE7FXZX37X84VWZB4XAN81","parent_id":null,"user_id":null}},
+      "extra_data": null,
+      "last_seen": "2024-05-27T16:59:31.466841+00:00"
+    },
+    {
+      "state": {"entity_id":"automation.fly_detected_notification","state":"on","attributes":{"last_triggered":"2024-05-27T16:24:52.112394+00:00","mode":"single","current":0,"friendly_name":"Fly Detected Notification"},"last_changed":"2024-05-27T16:05:42.626054+00:00","last_reported":"2024-05-27T16:24:52.113430+00:00","last_updated":"2024-05-27T16:24:52.113430+00:00","context":{"id":"01HYXDWX4GNC5Z7R2M7P9YWJEE","parent_id":null,"user_id":null}},
+      "extra_data": null,
+      "last_seen": "2024-05-27T16:29:23.758002+00:00"
+    },
+    {
+      "state": {"entity_id":"automation.turn_on_doorbell_light","state":"on","attributes":{"last_triggered":"2024-05-27T15:58:24.585364+00:00","mode":"single","current":0,"friendly_name":"Turn On Doorbell Light"},"last_changed":"2024-05-27T15:57:37.489125+00:00","last_reported":"2024-05-27T15:58:24.587880+00:00","last_updated":"2024-05-27T15:58:24.587880+00:00","context":{"id":"01HYXCCET93A99VGHNT4G1EX4Y","parent_id":null,"user_id":null}},
+      "extra_data": null,
+      "last_seen": "2024-05-27T16:04:59.621563+00:00"
+    },
+    {
+      "state": {"entity_id":"automation.motion_and_proximity_detected_2","state":"on","attributes":{"id":"1716823738604","last_triggered":"2024-05-27T15:34:36.863897+00:00","mode":"single","current":0,"friendly_name":"Motion and Proximity Detected ui"},"last_changed":"2024-05-27T15:33:27.994524+00:00","last_reported":"2024-05-27T15:34:36.864746+00:00","last_updated":"2024-05-27T15:34:36.864746+00:00","context":{"id":"01HYXB0WHZB4ZW20P8MGMX0QSN","parent_id":null,"user_id":null}},
+      "extra_data": null,
+      "last_seen": "2024-05-27T15:35:10.592490+00:00"
+    },
+    {
+      "state": {"entity_id":"binary_sensor.ultrasonic_sensor_2","state":"unknown","attributes":{"device_class":"occupancy","friendly_name":"Ultrasonic Sensor"},"last_changed":"2024-05-27T14:57:06.855822+00:00","last_reported":"2024-05-27T14:57:06.855822+00:00","last_updated":"2024-05-27T14:57:06.855822+00:00","context":{"id":"01HYX8W797ADEVRP3T42SYDV7N","parent_id":null,"user_id":null}},
+      "extra_data": null,
+      "last_seen": "2024-05-27T15:03:13.435767+00:00"
+    },
+    {
+      "state": {"entity_id":"conversation.home_assistant","state":"unknown","attributes":{"friendly_name":"Home Assistant"},"last_changed":"2024-05-27T11:54:33.436669+00:00","last_reported":"2024-05-27T11:54:33.436669+00:00","last_updated":"2024-05-27T11:54:33.436669+00:00","context":{"id":"01HYWYDYJWWXNC6J04MYGK78VN","parent_id":null,"user_id":null}},
+      "extra_data": null,
+      "last_seen": "2024-05-27T12:07:07.116145+00:00"
+    }
+  ]
+}
