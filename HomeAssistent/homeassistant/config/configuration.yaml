@@ -20,24 +20,24 @@ rest_command:
 mqtt:
   - binary_sensor:
       name: "Motion Sensor"
-      state_topic: "home/sensor/motion"
-      payload_on: "ON"
-      payload_off: "OFF"
+      state_topic: "home/front-door/sensor/motion"
+      payload_on: "Motion detected"
+      payload_off: "No motion"
       qos: 0
       device_class: motion
 
   - binary_sensor:
       name: "Ultrasonic Sensor"
-      state_topic: "home/sensor/ultrasonic"
-      payload_on: "ON"
-      payload_off: "OFF"
+      state_topic: "home/front-door/sensor/ultrasonic"
+      unit_of_measurement: "cm"
+      value_template: "{{ value }}"
       qos: 0
       device_class: occupancy
 
   - light:
       name: "Doorbell Light"
-      state_topic: "home/light/doorbell"
-      command_topic: "home/light/doorbell"
+      state_topic: "home/front-door/light/doorbell"
+      command_topic: "home/front-door/light/doorbell"
       payload_on: "ON"
       payload_off: "OFF"
       qos: 0
