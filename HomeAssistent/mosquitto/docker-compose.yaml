@@ -1,0 +1,12 @@
+version: '3'
+services:
+  mosquitto:
+    image: eclipse-mosquitto
+    container_name: mosquitto
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./config/mosquitto.conf:/mosquitto/config/mosquitto.conf  # Mapiranje mosquitto.conf datoteke
+      - ./data:/mosquitto/data  # Mapiranje direktorija za podatke
+      - ./log:/mosquitto/log  # Mapiranje direktorija za logove
+    restart: unless-stopped
