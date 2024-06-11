@@ -17,12 +17,25 @@
         entity_id: sensor.ultrasonic_sensor
         below: 50
   action:
-    - service: mqtt.publish
-      data:
-        topic: "home/front-door/actuator/buzzer"
-        payload: "ON"
-        qos: 0
-    - service: shell_command.download_image_front
+    - service: shell_command.check_image_front
+    - delay: "00:00:02"  # Dajte vremena za preuzimanje slike i ažuriranje senzora
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: sensor.front_door_image_state
+              state: "PERSON"
+          sequence:
+            - service: mqtt.publish
+              data:
+                topic: "home/front-door/actuator/buzzer"
+                payload: "ON"
+                qos: 0
+            - service: notify.simplepush
+              data:
+                title: "KNOCK KNOCK"
+                message: "Front door rang"
+                data:
+                  event: "event"
     - service: timer.start
       entity_id: timer.motion_sensor_reset_front
     - service: timer.start
@@ -75,12 +88,25 @@
         entity_id: sensor.ultrasonic_sensor_back_door
         below: 50
   action:
-    - service: mqtt.publish
-      data:
-        topic: "home/back-door/actuator/buzzer"
-        payload: "ON"
-        qos: 0
-    - service: shell_command.download_image_back
+    - service: shell_command.check_image_back
+    - delay: "00:00:02"  # Dajte vremena za preuzimanje slike i ažuriranje senzora
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: sensor.back_door_image_state
+              state: "PERSON"
+          sequence:
+            - service: mqtt.publish
+              data:
+                topic: "home/back-door/actuator/buzzer"
+                payload: "ON"
+                qos: 0
+            - service: notify.simplepush
+              data:
+                title: "KNOCK KNOCK"
+                message: "Back door rang"
+                data:
+                  event: "event"
     - service: timer.start
       entity_id: timer.motion_sensor_reset_back
     - service: timer.start

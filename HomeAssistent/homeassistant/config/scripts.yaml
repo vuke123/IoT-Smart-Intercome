@@ -1,0 +1,129 @@
+# Automation to Activate Buzzer on Motion and Proximity for Front Door
+- alias: "Activate Buzzer on Motion and Proximity Front Door"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_sensor
+      to: 'on'
+    - platform: numeric_state
+      entity_id: sensor.ultrasonic_sensor
+      below: 50
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: binary_sensor.motion_sensor
+        state: 'on'
+      - condition: numeric_state
+        entity_id: sensor.ultrasonic_sensor
+        below: 50
+  action:
+    - service: shell_command.download_image_front
+    - delay: "00:00:05"  # Dajte vremena za preuzimanje slike i ažuriranje senzora
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: sensor.front_door_image_state
+              state: "PERSON"
+          sequence:
+            - service: mqtt.publish
+              data:
+                topic: "home/front-door/actuator/buzzer"
+                payload: "ON"
+                qos: 0
+    - service: timer.start
+      entity_id: timer.motion_sensor_reset_front
+    - service: timer.start
+      entity_id: timer.ultrasonic_sensor_reset_front
+
+# Automation to Reset Motion Sensor for Front Door
+- alias: "Reset Motion Sensor Front Door"
+  trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.motion_sensor_reset_front
+  action:
+    - service: mqtt.publish
+      data:
+        topic: "home/front-door/sensor/motion"
+        payload: "No motion"
+        qos: 0
+
+# Automation to Reset Ultrasonic Sensor for Front Door
+- alias: "Reset Ultrasonic Sensor Front Door"
+  trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.ultrasonic_sensor_reset_front
+  action:
+    - service: mqtt.publish
+      data:
+        topic: "home/front-door/sensor/ultrasonic"
+        payload: "1000"  # Or another default value
+        qos: 0
+
+# Automation to Activate Buzzer on Motion and Proximity for Back Door
+- alias: "Activate Buzzer on Motion and Proximity Back Door"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_back_door
+      to: 'on'
+    - platform: numeric_state
+      entity_id: sensor.ultrasonic_sensor_back_door
+      below: 50
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: binary_sensor.motion_sensor_back_door
+        state: 'on'
+      - condition: numeric_state
+        entity_id: sensor.ultrasonic_sensor_back_door
+        below: 50
+  action:
+    - service: shell_command.download_image_back
+    - delay: "00:00:05"  # Dajte vremena za preuzimanje slike i ažuriranje senzora
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: sensor.back_door_image_state
+              state: "PERSON"
+          sequence:
+            - service: mqtt.publish
+              data:
+                topic: "home/back-door/actuator/buzzer"
+                payload: "ON"
+                qos: 0
+    - service: timer.start
+      entity_id: timer.motion_sensor_reset_back
+    - service: timer.start
+      entity_id: timer.ultrasonic_sensor_reset_back
+
+# Automation to Reset Motion Sensor for Back Door
+- alias: "Reset Motion Sensor Back Door"
+  trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.motion_sensor_reset_back
+  action:
+    - service: mqtt.publish
+      data:
+        topic: "home/back-door/sensor/motion"
+        payload: "No motion"
+        qos: 0
+
+# Automation to Reset Ultrasonic Sensor for Back Door
+- alias: "Reset Ultrasonic Sensor Back Door"
+  trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.ultrasonic_sensor_reset_back
+  action:
+    - service: mqtt.publish
+      data:
+        topic: "home/back-door/sensor/ultrasonic"
+        payload: "1000"  # Or another default value
+        qos: 0
