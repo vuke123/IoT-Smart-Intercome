@@ -5,13 +5,13 @@ from actuators.buzzer import Buzzer
 from sensors.motion import MotionSensor
 from sensors.ultrasonic import UltrasonicSensor
 
-MQTT_BROKER = "192.168.100.132"
+MQTT_BROKER = "192.168.223.218"
 PORT = 1883
 KEEPALIVE = 60
 
-TOPIC_ULTRASONIC = "home/sensor/ultrasonic"
-TOPIC_MOTION = "home/sensor/motion"
-TOPIC_BUZZER = "home/actuator/buzzer"
+TOPIC_ULTRASONIC = "home/front-door/sensor/ultrasonic"
+TOPIC_MOTION = "home/front-door/sensor/motion"
+TOPIC_BUZZER = "home/front-door/actuator/buzzer"
 
 SENSE_INTERVAL = 5
 
@@ -26,6 +26,9 @@ def on_message(client, userdata, msg):
     if msg.topic == TOPIC_BUZZER and payload == "ON":
         buzzer = userdata['buzzer']
         buzzer.activate()
+        time.sleep(3)
+        buzzer.stop()
+
 
 def main():
     client = create_mqtt_client()
