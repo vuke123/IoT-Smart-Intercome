@@ -22,6 +22,7 @@
         topic: "home/front-door/actuator/buzzer"
         payload: "ON"
         qos: 0
+    - service: shell_command.download_image_front
     - service: timer.start
       entity_id: timer.motion_sensor_reset_front
     - service: timer.start
@@ -79,6 +80,7 @@
         topic: "home/back-door/actuator/buzzer"
         payload: "ON"
         qos: 0
+    - service: shell_command.download_image_back
     - service: timer.start
       entity_id: timer.motion_sensor_reset_back
     - service: timer.start
