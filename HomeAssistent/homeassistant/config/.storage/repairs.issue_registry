@@ -64,6 +64,61 @@
           "name": "Fly Detected Notification",
           "edit": "/config/automation/edit/None"
         }
+      },
+      {
+        "created": "2024-06-07T18:02:44.983712+00:00",
+        "dismissed_version": null,
+        "domain": "mqtt",
+        "is_persistent": false,
+        "issue_id": "0x1a4bb9f8bdb73064"
+      },
+      {
+        "created": "2024-06-07T18:04:26.826326+00:00",
+        "dismissed_version": null,
+        "domain": "mqtt",
+        "is_persistent": false,
+        "issue_id": "-0x5bfac3a5c5bc6fab"
+      },
+      {
+        "created": "2024-06-07T18:12:45.402462+00:00",
+        "dismissed_version": null,
+        "domain": "mqtt",
+        "is_persistent": false,
+        "issue_id": "-0x2b01eed796961532"
+      },
+      {
+        "created": "2024-06-07T18:14:12.272199+00:00",
+        "dismissed_version": null,
+        "domain": "mqtt",
+        "is_persistent": false,
+        "issue_id": "-0x7c34e29819cfd81f"
+      },
+      {
+        "created": "2024-06-11T18:18:08.733380+00:00",
+        "dismissed_version": null,
+        "domain": "automation",
+        "is_persistent": true,
+        "issue_id": "automation.activate_buzzer_on_motion_and_proximity_back_door_service_not_found_rest_command.download_image_back",
+        "breaks_in_ha_version": null,
+        "data": null,
+        "is_fixable": true,
+        "issue_domain": null,
+        "learn_more_url": null,
+        "severity": "error",
+        "translation_key": "service_not_found",
+        "translation_placeholders": {
+          "service": "rest_command.download_image_back",
+          "entity_id": "automation.activate_buzzer_on_motion_and_proximity_back_door",
+          "name": "Activate Buzzer on Motion and Proximity Back Door",
+          "edit": "/config/automation/edit/None"
+        }
+      },
+      {
+        "created": "2024-06-11T18:41:18.842521+00:00",
+        "dismissed_version": null,
+        "domain": "mqtt",
+        "is_persistent": false,
+        "issue_id": "-0x769131e346853e36"
       }
     ]
   }

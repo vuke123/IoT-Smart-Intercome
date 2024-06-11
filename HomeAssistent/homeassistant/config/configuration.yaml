@@ -1,21 +1,47 @@
 camera:
   - platform: local_file
-    name: Person Detection
-    file_path: /config/www/person.jpg
-  - platform: local_file
-    name: Fly Detection
-    file_path: /config/www/fly.jpg
+    name: Front Door Image
+    file_path: "/config/www/front_image.jpg"
 
-rest_command:
-  send_image:
-    url: "http://localhost:5000/api/upload"
-    method: post
-    headers:
-      Content-Type: "application/json"
-    payload: >
-      {
-        "image_url": "{{ image_url }}"
-      }
+  - platform: local_file
+    name: Back Door Image
+    file_path: "/config/www/back_image.jpg"
+
+shell_command:
+  download_image_front: '/config/download_image.sh front'
+  download_image_back: '/config/download_image.sh back'
+  check_image_front: '/config/check_image.sh front'
+  check_image_back: '/config/check_image.sh back'
+
+notify:
+  - platform: html5
+    name: html5_notification
+    vapid_pub_key: !secret vapid_public_key
+    vapid_prv_key: !secret vapid_private_key
+    vapid_email: "mailto:your-email@example.com"
+
+
+# Timer Configuration
+timer:
+  motion_sensor_reset_front:
+    duration: '00:00:03'  # 3 seconds
+  motion_sensor_reset_back:
+    duration: '00:00:03'  # 3 seconds
+  ultrasonic_sensor_reset_front:
+    duration: '00:00:03'  # 3 seconds
+  ultrasonic_sensor_reset_back:
+    duration: '00:00:03'  # 3 seconds
+
+#command_line:
+#  - sensor:
+#      name: Front Door Image State
+#      command: "bash -c 'curl -s http://192.168.223.95:5003/get_image | grep -q \"No person detected.\" && echo NO_PERSON || echo PERSON'"
+#      scan_interval: 60
+#
+#  - sensor:
+#      name: Back Door Image State
+#      command: "bash -c 'curl -s http://192.168.223.95:5003/get_image | grep -q \"No person detected.\" && echo NO_PERSON || echo PERSON'"
+#      scan_interval: 60
 
 mqtt:
   - binary_sensor:
@@ -26,22 +52,47 @@ mqtt:
       qos: 0
       device_class: motion
 
-  - binary_sensor:
+  - sensor:
       name: "Ultrasonic Sensor"
       state_topic: "home/front-door/sensor/ultrasonic"
       unit_of_measurement: "cm"
       value_template: "{{ value }}"
       qos: 0
-      device_class: occupancy
+      device_class: distance
 
-  - light:
-      name: "Doorbell Light"
-      state_topic: "home/front-door/light/doorbell"
-      command_topic: "home/front-door/light/doorbell"
-      payload_on: "ON"
-      payload_off: "OFF"
+  - binary_sensor:
+      name: "Motion Sensor back door"
+      state_topic: "home/back-door/sensor/motion"
+      payload_on: "Motion detected"
+      payload_off: "No motion"
       qos: 0
+      device_class: motion
 
+  - sensor:
+      name: "Ultrasonic Sensor back door"
+      state_topic: "home/back-door/sensor/ultrasonic"
+      unit_of_measurement: "cm"
+      value_template: "{{ value }}"
+      qos: 0
+      device_class: distance
+
+  - sensor:
+      name: "Front Door Image State"
+      state_topic: "home/sensor/front_door_image_state"
+
+  - sensor:
+      name: "Back Door Image State"
+      state_topic: "home/sensor/back_door_image_state"
+      value_template: "{{ value }}"
+
+#
+ # - light:
+  #    name: "Doorbell Light"
+   #   state_topic: "home/front-door/light/doorbell"
+    #  command_topic: "home/front-door/light/doorbell"
+     # payload_on: "ON"
+      #payload_off: "OFF"
+      #qos: 0
 
 scene:
   - name: Doorbell Light On

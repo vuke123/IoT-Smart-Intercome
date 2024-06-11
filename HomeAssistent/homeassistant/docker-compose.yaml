@@ -1,0 +1,12 @@
+version: '3'
+services:
+  homeassistant:
+    container_name: homeassistant
+    image: ghcr.io/home-assistant/home-assistant:stable
+    volumes:
+      - ./config:/config
+    environment:
+      - TZ=Europe/Zagreb  # Postavite na vašu vremensku zonu
+    restart: unless-stopped
+    ports:
+      - "8123:8123"
