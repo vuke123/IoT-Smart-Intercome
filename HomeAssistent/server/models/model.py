@@ -14,7 +14,7 @@ def preprocess_image(image):
     blob = cv2.dnn.blobFromImage(image, 1 / 255.0, (416, 416), swapRB=True, crop=False)
     return blob
 
-def postprocess_detections(detections, image_width, image_height):
+def postprocess_detections(detections, classnames, image_width, image_height):
     processed_detections = []
     for detection in detections:
         scores = detection[5:]
