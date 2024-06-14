@@ -35,7 +35,7 @@ Virtualni senzori:
 Spremite virtual_esp, raspakirajte ga te unutar esp.py također promijenite IP adresu MQTT brokera na isti način kao kod virtualnih senzora. Računalo mora biti spojeno na istu mrežu kao MQTT broker.  Zatim pokrenite pyhton skriptu esp.py.
 
 Home Assistant platforma:  
-
+Prije pokretanja home assistant platforme treba pokrenuti mqtt broker. Nakon što se preuzme mqtt broker s interneta pozivionira se u mqqt folder i pokreće se naredbom mosquitto.exe -v -c mosquitto.conf. Nakon toga se pozicionirate u datoteku gdje se nalazi docker-compose.yml za pokretanje home assistanta te se naredbom "sudo docker compose up" pokreće. Ako je sve prošlo dobro home assistant UI se nalazi na localhost 8123
 
 
 
