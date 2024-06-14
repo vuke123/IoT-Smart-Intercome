@@ -35,3 +35,10 @@ Virtualni senzori:
 Spremite virtual_esp, raspakirajte ga te unutar esp.py također promijenite IP adresu MQTT brokera na isti način kao kod virtualnih senzora. Računalo mora biti spojeno na istu mrežu kao MQTT broker.  Zatim pokrenite pyhton skriptu esp.py.
 
 Home Assistant platforma:  
+
+
+
+
+Server:
+Kako bi se pokrenuo sever potrebno je najprije, unutar preuzete datoteku server u mapu models dodati datoteku yolov4.weights putem ove poveznice "https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v3_optimal/yolov4.weights" (datoteku nije bilo moguće postaviti na git jer je prevelika), a zatim pokrenuti app.py datoteku.
+
