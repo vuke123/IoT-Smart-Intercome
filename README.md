@@ -25,3 +25,13 @@ ESP32, senzor pokreta, aktuator (zvono), ultrazvučni senzor
   
 
 IoT-platforma:  HomeAssistant 
+
+# Upute za postavljanje i pokretanje
+
+Fizički senzori:  
+Senzore spojite na odgovarajuće pinove definirane u dokumentu ESP32/combined_sense/combined_sense.ino. U Arduino IDE otvorite .ino sketch, podesite IP adresu MQTT brokera i korištenu mrežu te uploadajte kod.
+
+Virtualni senzori:  
+Spremite virtual_esp, raspakirajte ga te unutar esp.py također promijenite IP adresu MQTT brokera na isti način kao kod virtualnih senzora. Računalo mora biti spojeno na istu mrežu kao MQTT broker.  Zatim pokrenite pyhton skriptu esp.py.
+
+Home Assistant platforma:  
