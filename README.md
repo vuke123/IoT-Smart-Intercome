@@ -39,6 +39,8 @@ Home Assistant platforma:
 
 
 
-Server:
+Server:  
 Kako bi se pokrenuo sever potrebno je unutar preuzete datoteke server, u mapu models, dodati datoteku yolov4.weights koja se može preuzeti putem ove poveznice "https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v3_optimal/yolov4.weights" (datoteku nije bilo moguće postaviti na git jer je prevelika). Nakon toga potrebno je pokrenuti app.py datoteku.
 
+Korisnička aplikacija:  
+Izvorni kod korisničke aplikacije nalazi se u zasebnom git repozitoriju, upute za postavljanje i pokretanje navedene su u dokumentaciji projekta.
